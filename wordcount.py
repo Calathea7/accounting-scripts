@@ -1,6 +1,8 @@
 # put your code here.
 
 import sys
+from collections import Counter
+
 filename = sys.argv[1]
 
 def count_words(filename):
@@ -17,7 +19,7 @@ def count_words(filename):
             word = word.lower().strip('._,?!;:"')
             word_count[word] = word_count.get(word, 0) + 1
 
-    for word, count in word_count.items():
+    for word, count in sorted(word_count.items()):
         print(str(word) + " " + str(count))
 
 count_words(filename)
